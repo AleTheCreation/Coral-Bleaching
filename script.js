@@ -3,7 +3,7 @@
 const imageContainer = document.getElementById('image-container');
 const slider = document.getElementById('slider');
 const numberOfImages = 36;
-const imageFolderPath = 'https://github.com/AleTheCreation/Coral-Bleaching/blob/main/images/'; 
+const imageFolderPath = 'images/'; 
 const imagePrefix = 'ezgif-frame-0'; 
 
 // Función para cargar y mostrar una imagen en el contenedor
