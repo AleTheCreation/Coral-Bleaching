@@ -7,14 +7,28 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.zoomify/dist/leaflet.zoomify.css" />
- 
-<link rel="stylesheet" href="style.css">    
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet.zoomify/dist/leaflet.zoomify.css" />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.min.css" />
+
+<link rel="stylesheet" href="https://code.jquery.com/jquery-3.6.4.min.js" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js" />
+
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+<script src="https://unpkg.com/leaflet.zoomify/dist/leaflet.zoomify.js"></script>
+<script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
 <style>
@@ -35,7 +49,222 @@
     }
   </style>
 
+  
+  <style>
+    body {
+      display: flex;
+     display: contents;
+    
+      
+      justify-content: center;
+      height: auto;
+      margin: 0;
+      padding: 0;
+    
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+    
+    #introduction-container {
+      margin-left: 24px;
+      margin-right: 24px;
+     
+      font-size: 24px;
+      text-align: justify;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      
+     
+    }
+    #coral-blanqueado1 {
+      margin-left: 24px;
+      margin-right: 24px;
+     
+      font-size: 24px;
+      text-align: justify;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      
+    }
+    #coral-blanqueado2 {
+      margin-left: 24px;
+      margin-right: 24px;
+     
+      font-size: 24px;
+      text-align: justify;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+     
+    }
+    #importancia {
+      margin-left: 24px;
+      margin-right: 24px;
+     
+      font-size: 24px;
+      text-align: justify;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+     
+    }
+    #Cuba {
+      margin-left: 24px;
+      margin-right: 24px;
+     
+      font-size: 24px;
+      text-align: justify;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+     
+    }
+    #conclusion {
+      margin-left: 24px;
+      margin-right: 24px;
+     
+      font-size: 24px;
+      text-align: justify;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+     
+    }
+    
+    #image-container {
+      width: auto;
+      height: auto;
+      margin: auto;
+    }
+    
+    #txt1 {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+    }
+    #temp {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+    }
+    #mapa {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+    }
+    #mapa2 {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+    }
+    .image {
+      position: relative;
+      margin: auto;
+      max-width: 100%;
+    
+    }
+    
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    
+    
+    h2 {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: auto;
+      color: white; 
+      text-align: center;
+      font-size: 3vw; 
+    }
+    
+     
+    #slider {
+      width: 80%;
+      margin-top: 20px;
+      margin: auto;
+      align-self: center;
+    }
+    
+    #map {
+      width: 100%;
+      height: 400px; 
+    }
+    
+    
+    
+    .circle-marker {
+      fill-opacity: 0.8;
+      stroke: none;
+    }
+    
+    
+    .leaflet-popup-content {
+      color: #333;
+      font-size: 14px;
+    }
+    
+    
+    
+    #buttons button {
+      display: flex;
+      flex-direction: row;
+      margin-right: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+     
+      
+    }
+    
+    #button2 button {
+      display: flex;
+      flex-direction: row;
+      margin-right: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+     
+      
+    }
+    #chartContainer2 {
+      
+       justify-content: space-around; 
+      align-items: flex-start; 
+       
+      margin-left: 200px;
+      margin-right: 200px;
+      padding: 10px;
+      
+      
+    }
 
+    .class-chart-container {
+      display: inline-block;
+      justify-content: space-around;
+      margin-right: 10px;
+    }
+    
+    
+    
+    
+    
+    
+    
+  </style>
 
 
   <title>Blanqueamiento de corales</title>
@@ -48,16 +277,10 @@
   
   
  
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-  <script src="https://unpkg.com/leaflet.zoomify/dist/leaflet.zoomify.js"></script>
-  <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <button id="btn">
-    
-  </button>
+
+
+  
 
   <div class="image">
     <img src="title_img.jpg" alt="corales">
@@ -79,15 +302,16 @@
 
   <div id="coral-blanqueado1">
     <p>Los arrecifes de coral de todo el mundo se enfrentan a un rápido deterioro debido al blanqueamiento esto ocurre cuando los simbiontes se encuentran en condiciones adversas como altas temperaturas provocando la ruptura de la simbiosis lo que puede verse exacerbado por la invasión de patógenos inducida por el estrés térmico. Las respuestas al estrés y la aptitud de los corales son muy complejas debido a su relación simbiótica con una microbiota diversa que comprende algas, bacterias, hongos, arqueas, protistas y virus simbióticos. </p>
+    <p>Los siguientes gráficos muestran las características de un coral sano y de un coral blanqueado, en ese orden.</p>
   </div>
 
-  
-  <div id="button2" class="btn">
-    
-  </div>
+
 
   
-  <div id="pie-container" class="chart-container"></div>
+  
+
+  
+  <div id="chartContainer2" class="charts-container"></div>
 
   <div id="coral-blanqueado2">
     <p>Durante este proceso se ven afectadas significativamente la composición de simbiontes, y se evidencia la dominancia en las comunidades de bacterias en los corales ya blanqueados. Los simbiontes experimentan alteraciones funcionales en respuesta al estrés por calor estas alteraciones dan como resultado un metabolismo energético anormal, lo que potencialmente podría comprometer la salud y la resistencia de los simbiontes. Las altas temperaturas también brindan claras ventajas para los patógenos de los corales, lo que lleva a un aumento de las enfermedades en el coral.</p>
@@ -111,7 +335,7 @@
 
   
 
-  <div id="buttons" class= "btn">
+  <div id="buttons" >
     
   </div>
   
@@ -158,16 +382,327 @@
 
   
  
-  <script type="module" src="graphic1.js"></script>
+  <script type="module">
+    let temperaturas_oc;
 
-  <script type="module" src="script.js"></script>
+fetch('./oceanos.json')
+  .then(response => response.json())
+  .then(dat => {
+    temperaturas_oc = dat;
+    createCharts(temperaturas_oc);
+  })
+  .catch(error => console.error('Error al cargar el JSON:', error));
+
+function createCharts(result) {
+  const buttonsDiv = document.getElementById('buttons');
+  const container = document.getElementById('chartContainer');
+
+  Object.keys(result).forEach(className => {
+    const button = createButton(className, container);
+    buttonsDiv.appendChild(button);
+
+    const chartContainer = createContainer(className, container);
+    container.appendChild(chartContainer);
+
+    createChart(className, result[className], chartContainer);
+});
+}
+
+function createButton(className, container) {
+  const button = document.createElement('button');
+  button.textContent = `${className}`;
+  button.addEventListener('click', () => {
+    // Ocultar todos los contenedores
+    const allContainers = document.querySelectorAll('.class-container');
+    allContainers.forEach(container => container.style.display = 'none');
+
+    // Mostrar el contenedor correspondiente
+    const containerToShow = document.getElementById(`container-${className}`);
+    containerToShow.style.display = 'block';
+  });
+
+  return button;
+}
+
+function createContainer(className, parentContainer) {
+  const container = document.createElement('div');
+  container.className = 'class-container';
+  container.id = `container-${className}`;
+  container.style.display = 'none'; // Ocultar el contenedor inicialmente
+
+  return container;
+}
+
+function createChart(className, classData, container) {
+  const graphic = document.createElement('canvas');
+  graphic.width = 400;
+  graphic.height = 300;
+  container.appendChild(graphic);
+
+  const ctx = graphic.getContext("2d");
+  const gradient = ctx.createLinearGradient(0, 0, 0, graphic.height);
+  gradient.addColorStop(0, 'rgba(255, 255, 0, 0.5)');
+  gradient.addColorStop(1, 'rgba(255, 0, 0, 0.8)');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: classData.map(item => item.año),
+      datasets: [{
+        label: 'Temperatura',
+        backgroundColor: gradient,
+        borderColor: 'rgba(255, 0, 0, 1)',
+        borderWidth: 2,
+        data: classData.map(item => parseFloat(item.temperaturas.replace(',', '.'))),
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  });
+}
+
+
+  </script>
+
+  <script type="module">
+    
+
+const imageContainer = document.getElementById('image-container');
+const slider = document.getElementById('slider');
+const numberOfImages = 36;
+const imageFolderPath = './images/'; 
+const imagePrefix = 'ezgif-frame-0'; 
+
+// Función para cargar y mostrar una imagen en el contenedor
+function showImage(imageNumber) {
+  const imageURL = `${imageFolderPath}${imagePrefix}${imageNumber}.jpg`;
+  const imageElement = document.createElement('img');
+  imageElement.src = imageURL;
+  imageElement.alt = `Imagen ${imageNumber}`;
 
   
-  <script type="module" src="graphic.js"></script>
 
-  <script type="module" src="grafico3.js"></script>
+  // Limpia el contenedor antes de agregar una nueva imagen
+  imageContainer.innerHTML = '';
 
-  <script type="module" src="mapaCuba.js"></script>
+ 
+  imageContainer.appendChild(imageElement);
+}
+
+function loadLastImageDimensions() {
+    const lastImage = new Image();
+    lastImage.src = `${imageFolderPath}${imagePrefix}${numberOfImages}.jpg`;
+  
+    lastImage.onload = function() {
+      imageContainer.style.width = lastImage.width + 'px';
+      imageContainer.style.height = lastImage.height + 'px';
+    };
+  }
+  
+
+
+showImage(1);
+
+slider.addEventListener('input', () => {
+  const percentage = slider.value;
+  const currentImage = Math.floor((percentage / 100) * numberOfImages) + 1;
+  showImage(currentImage);
+});
+
+
+
+  </script>
+
+  
+  <script type="module">
+    let percent_corals;
+
+    fetch('./coordinates.geojson')
+      .then(response => response.json())
+      .then(dat => {
+        percent_corals = dat;
+        createMap(percent_corals);
+      })
+      .catch(error => console.error('Error al cargar el JSON:', error));
+    
+    function createMap(geoJsonData) {
+      const map = L.map('map', {
+        maxZoom: 10,
+        minZoom: 2,
+      }).setView([0, 0], 2);
+    
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+    
+      
+      L.geoJSON(geoJsonData, {
+        style: feature => {
+          const coralblchp = feature.properties.coralblchp;
+          return {
+            fillColor: getColor(coralblchp),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+          };
+        },
+        onEachFeature: (feature, layer) => {
+          layer.bindPopup(feature.properties.popup_text);
+        }
+      }).addTo(map);
+    }
+    
+    function getColor(coralblchp) {
+      return coralblchp === -9998.0 ? 'gray' :
+        coralblchp < 0 ? 'black' :
+        coralblchp < 5 ? 'red' :
+        'green';
+    }
+    
+
+  </script>
+
+  <script type="module">
+    let corales_caract;
+
+fetch('./caracteristicas.json')
+  .then(response => response.json())
+  .then(dat => {
+    corales_caract = dat;
+    createCharts(corales_caract);
+  })
+  .catch(error => console.error('Error al cargar el JSON:', error));
+
+
+  function createCharts(result) {
+    const pieContainer = document.getElementById('chartContainer2');
+
+  Object.keys(result).forEach(className => {
+    const chart = createChart(className, result[className][0]);
+    pieContainer.appendChild(chart);
+  });
+  }
+
+  function createChart(className, classData) {
+    const chartContainer = document.createElement('div');
+    chartContainer.className = 'class-chart-container';
+  
+    const graphic = document.createElement('canvas');
+    
+    chartContainer.appendChild(graphic);
+  
+    const ctx = graphic.getContext("2d");
+  
+    const labels = Object.keys(classData);
+    const data = Object.values(classData).map(value => parseFloat(value.replace(',', '.')));
+  
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          backgroundColor: getRandomColors(labels.length),
+          data: data,
+        }]
+      },
+      options: {
+        plugins: {
+          datalabels: {
+            formatter: (value, context) => {
+              const label = context.chart.data.labels[context.dataIndex];
+              return `${label}: ${value}`;
+            },
+            color: '#fff',
+            display: 'auto',
+            font: {
+              size: 10, 
+             },
+          }
+        }
+      }
+    });
+  
+    chartContainer.id = `chart-${className}`;
+    chartContainer.className = 'class-chart';
+  
+    return chartContainer;
+  }
+  
+  function getRandomColors(numColors) {
+    const colors = [];
+    for (let i = 0; i < numColors; i++) {
+      const hue = (i * 137.508) % 360;
+      colors.push(`hsl(${hue}, 70%, 50%)`);
+    }
+    return colors;
+  }
+
+
+  </script>
+
+  <script type="module">
+    let data2;
+
+const cubaCenter = [21.5218, -77.7812];
+
+
+const map2 = L.map('map2', {
+  center: cubaCenter, 
+  zoom: 7, 
+  maxBounds: L.latLngBounds([19.5, -85.0], [23.5, -74.0]), 
+  maxZoom: 10, 
+  minZoom: 5, 
+});
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map2);
+
+const getColorForBleaching = percent => {
+   const r = Math.min(255, Math.max(0, 255));
+  const g = Math.min(255, Math.max(0, Math.round(255 - (percent * 2.55))));
+  const b = Math.min(255, Math.max(0, 0));
+  return `rgb(${r}, ${g}, ${b})`;
+};
+
+
+fetch('./location.json')
+  .then(response => response.json())
+  .then(dat => {
+    data2 = dat;
+
+    if (data2 && data2.locations) {
+      data2.locations.forEach(element => {
+        const { latitud, longitud, percent_bleaching, name } = element;
+        const color = getColorForBleaching(parseFloat(percent_bleaching.replace(',', '.')));
+
+        L.circle([parseFloat(latitud.replace(',', '.')), parseFloat(longitud.replace(',', '.'))], {
+          radius: 100,
+          fillColor: color,
+          color: color,
+          weight: 7,
+          opacity: 1,
+          fillOpacity: 0.8
+        }).addTo(map2).bindPopup('Zona: ' + name + ', Por ciento de blanqueamiento: ' + percent_bleaching + '%');
+      });
+    } else {
+      console.error('El objeto locations es undefined o no está definido.');
+    }
+  })
+  .catch(error => console.error('Error al cargar el JSON:', error));
+
+
+
+
+  </script>
+
 </body>
 </html>
 
