@@ -1,174 +1,1068 @@
 <!DOCTYPE html>
 <html lang="es">
-  
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"
+    />
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.zoomify/dist/leaflet.zoomify.css" />
- 
-<link rel="stylesheet" href="style.css">    
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.zoomify/dist/leaflet.zoomify.css"
+    />
 
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.min.css"
+    />
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
-<style>
-    #map {
-      height: 400px;
-      width: 1025px;
-      align-self: center;
-    }
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.6.4.min.js" />
 
-    
-  </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js" />
 
-  <style>
-    #map2 {
-      height: 400px;
-      width: 1025px;
-      align-self: center;
-    }
-  </style>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/leaflet.zoomify/dist/leaflet.zoomify.js"></script>
+    <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <style>
+      #map {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
 
+        max-width: 1000px;
+        max-height: 1000px;
 
+        margin: 0 auto;
+        padding: 10px;
+      }
+    </style>
 
-  <title>Blanqueamiento de corales</title>
- 
-</head>
+    <style>
+      #map2 {
+        height: 400px;
+        width: 1025px;
+        align-self: center;
+        display: block;
+        margin: auto;
+      }
+    </style>
 
+    <style>
+      body {
+        display: contents;
 
-<body>
-    
-  
-  
- 
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-  <script src="https://unpkg.com/leaflet.zoomify/dist/leaflet.zoomify.js"></script>
-  <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        justify-content: center;
+        height: auto;
+        margin: 0;
+        padding: 0;
 
-  <button id="btn">
-    
-  </button>
+        align-items: center;
+      }
 
-  <div class="image">
-    <img src="title_img.jpg" alt="corales">
-    <h2>El blanqueamiento de los corales, un problema grave en la actualidad.</h2>
-  </div>
+      p {
+        text-indent: 20px;
+      }
 
-<div id="introduction-container">
-  <p>Un coral arrecifal es una colonia de pólipos que forman estructuras calcáreas y que cubren la matriz rocosa de fondos marinos tropicales y subtropicales por lo que tienden a soportar temperaturas entre 20°C y 30°C. El desarrollo de los arrecifes se debe principalmente al crecimiento y superposición de los esqueletos de los corales. Este proceso de calcificación del esqueleto a partir de la absorción de carbonatos del agua de mar es estimulado por algas unicelulares dependientes de la luz, que viven en simbiosis dentro del tejido del coral y que reciben el nombre de zooxantelas. </p>
-  <p>Debido a la presencia de las zooxantelas, los corales pétreos para su crecimiento necesitan de la luz solar, de esta forma, la profundidad límite de los arrecifes dependerá de la transparencia del agua, y por lo general, disminuye su presencia por debajo de los 30 metros. Igualmente, los corales requieren de un fondo duro donde sus larvas puedan fijarse y desarrollarse. Los arrecifes coralinos precisan de aguas agitadas o constantemente renovadas para que los organismos inmóviles puedan alimentarse y llevar a cabo sus funciones fisiológicas. </p>
-  <p>Los arrecifes coralinos ecosistemas muy delicados que se ven amenazados por diferentes factores de estrés, tanto de origen natural como humano un ejemplo de las amenazas que tiene actualmente es la eutrofización pues la fertilización excesiva perjudica a los arrecifes al disminuir los niveles de iluminación a causa de la proliferación del fitoplancton. La sobrepesca es otro factor, este favorece la proliferación de algas porque la eliminación o disminución de las poblaciones de especies herbívoras, como los peces loros y barberos, puede favorecer el aumento excesivo de especies bio - erosionantes o que se alimentan de los propios corales, causando igualmente importante daño al arrecife. Existen otros ejemplos como la contaminación, la sedimentación, la acidificación del océano y el cambio climático, este último ha causado daños significativos debido al incremento anómalo de la temperatura del mar dando lugar al blanqueamiento de corales.   </p>
-</div>
-  <div id="image-container">
-    
-  </div>
+      #introduction-container {
+        margin-left: 24px;
+        margin-right: 24px;
 
-  <div id="txt1"><p>Transición de coral sano - coral blanqueado - coral muerto</p></div>
-  
-  <input type="range" id="slider" min="0" max="100" value="0">
+        font-size: 24px;
+        text-align: justify;
+        padding: 20px;
 
-  <div id="coral-blanqueado1">
-    <p>Los arrecifes de coral de todo el mundo se enfrentan a un rápido deterioro debido al blanqueamiento esto ocurre cuando los simbiontes se encuentran en condiciones adversas como altas temperaturas provocando la ruptura de la simbiosis lo que puede verse exacerbado por la invasión de patógenos inducida por el estrés térmico. Las respuestas al estrés y la aptitud de los corales son muy complejas debido a su relación simbiótica con una microbiota diversa que comprende algas, bacterias, hongos, arqueas, protistas y virus simbióticos. </p>
-  </div>
+        border-radius: 8px;
+      }
 
-  
-  <div id="button2" class="btn">
-    
-  </div>
+      #coral-blanqueado1 {
+        margin-left: 24px;
+        margin-right: 24px;
 
-  
-  <div id="pie-container" class="chart-container"></div>
+        font-size: 24px;
+        text-align: justify;
+        padding: 20px;
 
-  <div id="coral-blanqueado2">
-    <p>Durante este proceso se ven afectadas significativamente la composición de simbiontes, y se evidencia la dominancia en las comunidades de bacterias en los corales ya blanqueados. Los simbiontes experimentan alteraciones funcionales en respuesta al estrés por calor estas alteraciones dan como resultado un metabolismo energético anormal, lo que potencialmente podría comprometer la salud y la resistencia de los simbiontes. Las altas temperaturas también brindan claras ventajas para los patógenos de los corales, lo que lleva a un aumento de las enfermedades en el coral.</p>
-    <p>Cuando las anomalías térmicas son severas, incluso los corales centenarios pueden blanquearse. En contraste, cuando las anomalías térmicas son menos intensas, el blanqueamiento es altamente selectivo, con un amplio espectro de respuestas de los corales resistentes versus especies susceptibles.    </p>
-    <p>En la siguientes gráficas se puede observar el análisis hecho de las temperaturas oceánicas promedio en diferentes años en cinco zonas relevantes. Luego del análisis de las gráficas podemos llegar a los datos siguientes:</p>
-    <p>- La temperatura promedio en el Mar Rojo es 26.09 °C y su temperatura máxima se registró en el Norte y centro del mar Rojo en el año 1998 y es 33.03 °C</p>
-    <p>- La temperatura promedio en el Golfo Arábico es 29.90°C y su temperatura máxima se alcanzó en el Golfo Pérsico en 1998 y es 37.44 °C</p>
-<p>- La temperatura promedio en el océano Atlántico es 28.48°C y su temperatura máxima se alcanzó Cayo de Bahamas y Florida en el 2011 y es 33.30 °C.
-</p>
-<p>- La temperatura promedio en el océano Índico es 28.35 °C y su temperatura máxima se alcanzó en Islas Mascareñas el 2010 y es 34.20°C
-</p>
-<p>- La temperatura promedio en el océano Pacífico es 28.33 °C y su temperatura máxima se alcanzó en la Bahía de Milne, Papúa Nueva Guinea en el 2010 y es 33.80°C.
-</p>
-      </div>
+        border-radius: 8px;
+      }
 
+      #coral-blanqueado2 {
+        margin-left: 24px;
+        margin-right: 24px;
 
-  
-  
+        font-size: 24px;
+        text-align: justify;
+        padding: 20px;
 
+        border-radius: 8px;
+      }
 
+      #importancia {
+        margin-left: 24px;
+        margin-right: 24px;
 
-  
+        font-size: 24px;
+        text-align: justify;
+        padding: 20px;
 
-  <div id="buttons" class= "btn">
-    
-  </div>
-  
-  <div id="chartContainer"></div>
-  <div id="temp">
-    <p>Temperaturas oceánicas</p>
-  </div>
-  <div id="importancia">
-    <p>El valor ecológico de los arrecifes coralinos es considerable ya que constituyen el área vital de refugio o reproducción de gran cantidad de especies de aguas continentales e insulares, incluyendo las comerciales. Poseen gran valor intrínseco por su carácter único en sus formas y procesos, así como su composición y diversidad. Albergan la cuarta parte de las especies del globo terráqueo, de ello se desprende una gran importancia educacional, científica y ética.</p>
-    <p>Brindan una efectiva protección sobre las costas frente a la posible erosión generada por la energía del oleaje. Muchísimos cayos y ecosistemas costeros, como manglares, dunas de playas y pastos marinos, existen gracias a la presencia de esas rompientes arrecifales, así como numerosos poblados y edificaciones de las costas. Este ecosistema es fuente de una gran variedad de recursos pesqueros, entre ellos la langosta y peces como los pargos y los meros. Se estima que los arrecifes coralinos aportan entre el 10 y 12% de las pesquerías totales de los países tropicales, y entre el 20 y el 25 % si se trata sólo de la pesquería de peces. Más de 200 especies comerciales provienen de los arrecifes de la región del Gran Caribe.</p>
-    <p>Las especies presentes en los arrecifes coralinos son fuente de sustancias biológicamente activas. Estas sustancias se emplean como fármacos a partir de sus propiedades antibióticas, antivirales, anticancerígenas, hipotensoras, antiinflamatorias, antiasmáticas, anti herpéticas, antiartríticas y como reactivos de interés bioquímico y experimental.</p>
-    <p>Numerosos son los productos que como materia prima sirven para la elaboración de vistosos y codiciados objetos de artesanía y bisutería. Los arrecifes coralinos constituyen una de las principales fábricas de la arena que nutre las playas y que también se emplea en la construcción. </p>
-    <p>La gran diversidad de fauna y flora de los arrecifes coralinos genera un paisaje submarino de extraordinario valor estético, el cual resulta de gran trascendencia socioeconómica para los países tropicales. Esto los convierte en lugares con alta demanda turística internacional, por lo tanto, resulta un recurso natural explotable económicamente en la actualidad y en el futuro, siempre que se maneje correctamente.</p>
-    <p>A continuación se presentan los por cientos de corales blanqueados por regiones ecológicas</p>
-  </div>
-  <div id="map" style="height: 500px;"></div>
-  <div id="mapa">
-    <p>Mapa mundial</p>
-  </div>
+        border-radius: 8px;
+      }
 
-  <div id = "Cuba">
-    <p>Los arrecifes coralinos en Cuba presentan diferentes grados de deterioro tanto los arrecifes de crestas como frontales por lo que se están volviendo menos efectivas como refugio para peces y como disipadoras del oleaje, a causa de la pérdida de complejidad estructural. A lo largo de las últimas cuatro décadas la complejidad arquitectónica del arrecife se está destruyendo más rápido de lo previsto en todo el Gran Caribe, ya que los esqueletos remanentes de los corales que van muriendo sufren erosión acelerada. Debido a este proceso, los arrecifes van dejando de ejercer sus funciones ecológicas (refugio para depredadores y presas, protección de la base rocosa del arrecife, etc.) y de brindar sus servicios ambientales (protección costera, pesca, turismo, etc). La disminución del cubrimiento vivo del fondo por corales pétreos constituye una pérdida de hábitat y afectación al ciclo de vida de numerosas especies arrecifales.
-    </p> <p>Los reportes de blanqueamiento en Cuba comenzaron desde 1983, y en el presente siglo el blanqueamiento se ha generalizado y con reportes de mayor intensidad tanto en Cuba como el Gran Caribe. A pesar de la intensidad con que ha ocurrido el blanqueamiento en numerosos puntos del país, los reportes han indicado una marcada tendencia a la recuperación de los corales, con algunos casos aislados de mortalidad moderada. La Red de Monitoreo Voluntario de Alerta Temprana de Arrecifes Coralinos involucra a centros de buceo, áreas protegidas, centros de investigación y colaboradores comunitarios. A partir de su creación en el marco del Proyecto PNUD/GEF Sabana-Camagüey, con la Agencia de Medio Ambiente del CITMA, el Ministerio de Turismo y el Instituto de Oceanología de Cuba, se obtiene información sobre el estado de los arrecifes coralinos a nivel nacional. 
-    </p><p>Para evitar el incremento de este proceso se debe tener en cuenta lo siguiente:
-    </p><p>1. Evitar causar daños directos a los corales durante el blanqueamiento, como levantamiento de sedimentos o fracturas. Cumplir con las regulaciones ambientales de buceo y suspender el buceo en áreas con corales blanqueados en casos extremos.
-    </p><p>2. Minimizar otros impactos humanos en los arrecifes, como la contaminación, la pesca excesiva, el uso de artes de pesca dañinas, la introducción de especies exóticas y la extracción de corales. Promover la lectura y aplicación de medidas correspondientes a través de manuales y capacitaciones.
-    </p><p> 3. Establecer áreas protegidas marinas en arrecifes que raramente sufren blanqueamiento o que tienen una mayor capacidad de recuperación. Declarar los centros de buceo como áreas de protección obligada para contribuir a la conectividad entre arrecifes y favorecer el reabastecimiento de larvas de coral.
-    </p><p>4. Fortalecer el monitoreo profesional y de voluntarios para comprender el estado de salud de los arrecifes, los procesos que lo determinan, y las necesidades de manejo. Evaluar la eficacia de las medidas de manejo y determinar qué arrecifes deben ser incluidos en áreas protegidas.
-    </p><p>A continuación se encuentra el mapa de Cuba donde se representan los por cientos de blanqueamiento de los corales.</p>
+      #Cuba {
+        margin-left: 24px;
+        margin-right: 24px;
+
+        font-size: 24px;
+        text-align: justify;
+        padding: 20px;
+
+        border-radius: 8px;
+      }
+
+      #prom {
+        margin-left: 24px;
+        margin-right: 24px;
+
+        font-size: 20px;
+        text-align: justify;
+        padding: 20px;
+
+        border-radius: 8px;
+      }
+
+      #cub2 {
+        margin-left: 24px;
+        margin-right: 24px;
+
+        font-size: 20px;
+        text-align: justify;
+        padding: 20px;
+
+        border-radius: 8px;
+      }
+
+      #prom p {
+        position: relative;
+        counter-increment: section;
+        margin-bottom: 16px;
+      }
+
+      #prom p::before {
+        content: counter(section) ". ";
+        font-weight: bold;
+        color: #536dfe; /* Color personalizado para la numeración */
+        margin-right: 8px;
+      }
+
+      #cub2 p {
+        position: relative;
+        counter-increment: section;
+        margin-bottom: 16px;
+      }
+
+      #cub2 p::before {
+        content: counter(section) ". ";
+        font-weight: bold;
+        color: #536dfe; /* Color personalizado para la numeración */
+        margin-right: 8px;
+      }
+
+      #conclusion {
+        margin-left: 24px;
+        margin-right: 24px;
+
+        font-size: 24px;
+        text-align: justify;
+        padding: 20px;
+
+        border-radius: 8px;
+      }
+
+      #image-container {
+        width: auto;
+        height: auto;
+        margin: auto;
+      }
+
+      #txt1 {
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      #temp {
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      #mapa {
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      #mapa2 {
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .image {
+        position: relative;
+        margin: auto;
+        max-width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      h2 {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: auto;
+        color: white;
+        text-align: center;
+        font-size: 3vw;
+      }
+
+      #slider {
+        width: 80%;
+        margin-top: 20px;
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+
+      #map {
+        width: 100%;
+        height: 400px;
+      }
+
+      .circle-marker {
+        fill-opacity: 0.8;
+        stroke: none;
+      }
+
+      .leaflet-popup-content {
+        color: #333;
+        font-size: 14px;
+      }
+
+      #chartContainer {
+        justify-content: center;
+
+        max-width: 800px;
+        max-height: 800px;
+
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      #chartContainer2 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        max-width: 800px;
+        max-height: 800px;
+
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      .class-chart {
+        width: 100%;
+      }
+
+      #buttons {
+        display: flex;
+        justify-content: center;
+      }
+
+      #buttons button {
+        align-items: center;
+        background-color: #eef2ff;
+        border-radius: 8px;
+        border-width: 2px;
+        border-color: #536dfe;
+        box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px,
+          rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #536dfe;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: "JetBrains Mono", monospace;
+        height: 56px;
+        justify-content: center;
+        line-height: 1;
+        list-style: none;
+        overflow: hidden;
+        padding-left: 24px;
+        padding-right: 24px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: box-shadow 0.15s, transform 0.15s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        will-change: box-shadow, transform;
+        font-size: flex;
+        white-space: pre-line;
+      }
+
+      #buttons button :focus {
+        outline: none;
+        box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(83, 109, 254, 0.4) 0 2px 4px,
+          rgba(83, 109, 254, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+      }
+
+      #buttons button :hover {
+        box-shadow: rgba(83, 109, 254, 0.3) 0 4px 8px,
+          rgba(83, 109, 254, 0.2) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+        transform: translateY(-2px);
+      }
+
+      #buttons button :active {
+        box-shadow: #d6d6e7 0 3px 7px inset;
+        transform: translateY(2px);
+      }
+
+      #metodologia {
+        margin: 20px;
+        font-size: 16px;
+      }
+
+      #metodologia p {
+        margin-bottom: 10px;
+      }
+
+      #metodologia h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      #metodologia ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #metodologia li {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+
+      #metodologia li:last-child {
+        border-bottom: none;
+      }
+    </style>
+
+    <title>Blanqueamiento de corales</title>
+  </head>
+
+  <body>
+    <div class="image">
+      <img src="title_img.jpg" alt="corales" />
+      <h2>
+        El blanqueamiento de los corales, un problema grave en la actualidad.
+      </h2>
     </div>
-  
 
-  <div id="map2"></div>
+    <div id="introduction-container">
+      <p>
+        Un coral arrecifal es una colonia de pólipos que forman estructuras
+        calcáreas y que cubren la matriz rocosa de fondos marinos tropicales y
+        subtropicales por lo que tienden a soportar temperaturas entre 20°C y
+        30°C. El desarrollo de los arrecifes se debe principalmente al
+        crecimiento y superposición de los esqueletos de los corales. Este
+        proceso de calcificación del esqueleto a partir de la absorción de
+        carbonatos del agua de mar es estimulado por algas unicelulares
+        dependientes de la luz, que viven en simbiosis dentro del tejido del
+        coral y que reciben el nombre de zooxantelas.
+      </p>
+      <p>
+        Debido a la presencia de las zooxantelas, los corales pétreos para su
+        crecimiento necesitan de la luz solar, de esta forma, la profundidad
+        límite de los arrecifes dependerá de la transparencia del agua, y por lo
+        general, disminuye su presencia por debajo de los 30 metros. Igualmente,
+        los corales requieren de un fondo duro donde sus larvas puedan fijarse y
+        desarrollarse. Los arrecifes coralinos precisan de aguas agitadas o
+        constantemente renovadas para que los organismos inmóviles puedan
+        alimentarse y llevar a cabo sus funciones fisiológicas.
+      </p>
+      <p>
+        Los arrecifes coralinos ecosistemas muy delicados que se ven amenazados
+        por diferentes factores de estrés, tanto de origen natural como humano
+        un ejemplo de las amenazas que tiene actualmente es la eutrofización
+        pues la fertilización excesiva perjudica a los arrecifes al disminuir
+        los niveles de iluminación a causa de la proliferación del fitoplancton.
+        La sobrepesca es otro factor, este favorece la proliferación de algas
+        porque la eliminación o disminución de las poblaciones de especies
+        herbívoras, como los peces loros y barberos, puede favorecer el aumento
+        excesivo de especies bio - erosionantes o que se alimentan de los
+        propios corales, causando igualmente importante daño al arrecife.
+        Existen otros ejemplos como la contaminación, la sedimentación, la
+        acidificación del océano y el cambio climático, este último ha causado
+        daños significativos debido al incremento anómalo de la temperatura del
+        mar dando lugar al blanqueamiento de corales.
+      </p>
+    </div>
+    <div id="image-container"></div>
 
-  <div id="mapa2">
-    <p>Mapa de Cuba</p>
+    <div id="txt1">
+      <p>Transición de coral sano - coral blanqueado - coral muerto</p>
     </div>
 
-  
-<div id = "conclusion">
-  <p>La sinergia entre el incremento de la temperatura superficial del mar, y el actualmente discreto (pero probablemente sostenido y gradual) incremento del nivel del mar, aumenta el riesgo de pérdida de biodiversidad, principalmente de los arrecifes de coral por lo que es necesario continuar los estudios sobre este tema.
-  </p>
-</div>
+    <input type="range" id="slider" min="0" max="100" value="0" />
 
-  
- 
-  <script type="module" src="graphic1.js"></script>
+    <div id="coral-blanqueado1">
+      <p>
+        Los arrecifes de coral de todo el mundo se enfrentan a un rápido
+        deterioro debido al blanqueamiento esto ocurre cuando los simbiontes se
+        encuentran en condiciones adversas como altas temperaturas provocando la
+        ruptura de la simbiosis lo que puede verse exacerbado por la invasión de
+        patógenos inducida por el estrés térmico. Las respuestas al estrés y la
+        aptitud de los corales son muy complejas debido a su relación simbiótica
+        con una microbiota diversa que comprende algas, bacterias, hongos,
+        arqueas, protistas y virus simbióticos.
+      </p>
+      <p>
+        Los siguientes gráficos muestran las características de un coral sano y
+        de un coral blanqueado, en ese orden.
+      </p>
+    </div>
 
-  <script type="module" src="script.js"></script>
+    <div id="chartContainer2" class="charts-container"></div>
 
-  
-  <script type="module" src="graphic.js"></script>
+    <div id="coral-blanqueado2">
+      <p>
+        Durante este proceso se ven afectadas significativamente la composición
+        de simbiontes, y se evidencia la dominancia en las comunidades de
+        bacterias en los corales ya blanqueados. Los simbiontes experimentan
+        alteraciones funcionales en respuesta al estrés por calor estas
+        alteraciones dan como resultado un metabolismo energético anormal, lo
+        que potencialmente podría comprometer la salud y la resistencia de los
+        simbiontes. Las altas temperaturas también brindan claras ventajas para
+        los patógenos de los corales, lo que lleva a un aumento de las
+        enfermedades en el coral.
+      </p>
+      <p>
+        Cuando las anomalías térmicas son severas, incluso los corales
+        centenarios pueden blanquearse. En contraste, cuando las anomalías
+        térmicas son menos intensas, el blanqueamiento es altamente selectivo,
+        con un amplio espectro de respuestas de los corales resistentes versus
+        especies susceptibles.
+      </p>
+      <p>
+        En la siguientes gráficas se puede observar el análisis hecho de las
+        temperaturas oceánicas promedio en diferentes años en cinco zonas
+        relevantes. Luego del análisis de las gráficas podemos llegar a los
+        datos siguientes:
+      </p>
+    </div>
 
-  <script type="module" src="grafico3.js"></script>
+    <div id="prom">
+      <p>
+        La temperatura promedio en el Mar Rojo es 26.09 °C y su temperatura
+        máxima se registró en el Norte y centro del mar Rojo en el año 1998 y es
+        33.03 °C
+      </p>
+      <p>
+        La temperatura promedio en el Golfo Arábico es 29.90°C y su temperatura
+        máxima se alcanzó en el Golfo Pérsico en 1998 y es 37.44 °C
+      </p>
+      <p>
+        La temperatura promedio en el océano Atlántico es 28.48°C y su
+        temperatura máxima se alcanzó Cayo de Bahamas y Florida en el 2011 y es
+        33.30 °C.
+      </p>
+      <p>
+        La temperatura promedio en el océano Índico es 28.35 °C y su temperatura
+        máxima se alcanzó en Islas Mascareñas el 2010 y es 34.20°C
+      </p>
+      <p>
+        La temperatura promedio en el océano Pacífico es 28.33 °C y su
+        temperatura máxima se alcanzó en la Bahía de Milne, Papúa Nueva Guinea
+        en el 2010 y es 33.80°C.
+      </p>
+    </div>
 
-  <script type="module" src="mapaCuba.js"></script>
-</body>
+    <div id="buttons"></div>
+
+    <div id="chartContainer"></div>
+    <div id="temp">
+      <p>Temperaturas oceánicas</p>
+    </div>
+    <div id="importancia">
+      <p>
+        El valor ecológico de los arrecifes coralinos es considerable ya que
+        constituyen el área vital de refugio o reproducción de gran cantidad de
+        especies de aguas continentales e insulares, incluyendo las comerciales.
+        Poseen gran valor intrínseco por su carácter único en sus formas y
+        procesos, así como su composición y diversidad. Albergan la cuarta parte
+        de las especies del globo terráqueo, de ello se desprende una gran
+        importancia educacional, científica y ética.
+      </p>
+      <p>
+        Brindan una efectiva protección sobre las costas frente a la posible
+        erosión generada por la energía del oleaje. Muchísimos cayos y
+        ecosistemas costeros, como manglares, dunas de playas y pastos marinos,
+        existen gracias a la presencia de esas rompientes arrecifales, así como
+        numerosos poblados y edificaciones de las costas. Este ecosistema es
+        fuente de una gran variedad de recursos pesqueros, entre ellos la
+        langosta y peces como los pargos y los meros. Se estima que los
+        arrecifes coralinos aportan entre el 10 y 12% de las pesquerías totales
+        de los países tropicales, y entre el 20 y el 25 % si se trata sólo de la
+        pesquería de peces. Más de 200 especies comerciales provienen de los
+        arrecifes de la región del Gran Caribe.
+      </p>
+      <p>
+        Las especies presentes en los arrecifes coralinos son fuente de
+        sustancias biológicamente activas. Estas sustancias se emplean como
+        fármacos a partir de sus propiedades antibióticas, antivirales,
+        anticancerígenas, hipotensoras, antiinflamatorias, antiasmáticas, anti
+        herpéticas, antiartríticas y como reactivos de interés bioquímico y
+        experimental.
+      </p>
+      <p>
+        Numerosos son los productos que como materia prima sirven para la
+        elaboración de vistosos y codiciados objetos de artesanía y bisutería.
+        Los arrecifes coralinos constituyen una de las principales fábricas de
+        la arena que nutre las playas y que también se emplea en la
+        construcción.
+      </p>
+      <p>
+        La gran diversidad de fauna y flora de los arrecifes coralinos genera un
+        paisaje submarino de extraordinario valor estético, el cual resulta de
+        gran trascendencia socioeconómica para los países tropicales. Esto los
+        convierte en lugares con alta demanda turística internacional, por lo
+        tanto, resulta un recurso natural explotable económicamente en la
+        actualidad y en el futuro, siempre que se maneje correctamente.
+      </p>
+      <p>
+        A continuación se presentan los por cientos de corales blanqueados por
+        regiones ecológicas:
+      </p>
+    </div>
+    <div id="map" style="height: 500px"></div>
+    <div id="mapa">
+      <p>Mapa Mundial</p>
+    </div>
+
+    <div id="Cuba">
+      <p>
+        Los arrecifes coralinos en Cuba presentan diferentes grados de deterioro
+        tanto los arrecifes de crestas como frontales por lo que se están
+        volviendo menos efectivas como refugio para peces y como disipadoras del
+        oleaje, a causa de la pérdida de complejidad estructural. A lo largo de
+        las últimas cuatro décadas la complejidad arquitectónica del arrecife se
+        está destruyendo más rápido de lo previsto en todo el Gran Caribe, ya
+        que los esqueletos remanentes de los corales que van muriendo sufren
+        erosión acelerada. Debido a este proceso, los arrecifes van dejando de
+        ejercer sus funciones ecológicas (refugio para depredadores y presas,
+        protección de la base rocosa del arrecife, etc.) y de brindar sus
+        servicios ambientales (protección costera, pesca, turismo, etc). La
+        disminución del cubrimiento vivo del fondo por corales pétreos
+        constituye una pérdida de hábitat y afectación al ciclo de vida de
+        numerosas especies arrecifales.
+      </p>
+      <p>
+        Los reportes de blanqueamiento en Cuba comenzaron desde 1983, y en el
+        presente siglo el blanqueamiento se ha generalizado y con reportes de
+        mayor intensidad tanto en Cuba como el Gran Caribe. A pesar de la
+        intensidad con que ha ocurrido el blanqueamiento en numerosos puntos del
+        país, los reportes han indicado una marcada tendencia a la recuperación
+        de los corales, con algunos casos aislados de mortalidad moderada. La
+        Red de Monitoreo Voluntario de Alerta Temprana de Arrecifes Coralinos
+        involucra a centros de buceo, áreas protegidas, centros de investigación
+        y colaboradores comunitarios. A partir de su creación en el marco del
+        Proyecto PNUD/GEF Sabana-Camagüey, con la Agencia de Medio Ambiente del
+        CITMA, el Ministerio de Turismo y el Instituto de Oceanología de Cuba,
+        se obtiene información sobre el estado de los arrecifes coralinos a
+        nivel nacional.
+      </p>
+      <p>
+        Para evitar el incremento de este proceso se debe tener en cuenta lo
+        siguiente:
+      </p>
+    </div>
+
+    <div id="cub2">
+      <p>
+        Evitar causar daños directos a los corales durante el blanqueamiento,
+        como levantamiento de sedimentos o fracturas. Cumplir con las
+        regulaciones ambientales de buceo y suspender el buceo en áreas con
+        corales blanqueados en casos extremos.
+      </p>
+      <p>
+        Minimizar otros impactos humanos en los arrecifes, como la
+        contaminación, la pesca excesiva, el uso de artes de pesca dañinas, la
+        introducción de especies exóticas y la extracción de corales. Promover
+        la lectura y aplicación de medidas correspondientes a través de manuales
+        y capacitaciones.
+      </p>
+      <p>
+        Establecer áreas protegidas marinas en arrecifes que raramente sufren
+        blanqueamiento o que tienen una mayor capacidad de recuperación.
+        Declarar los centros de buceo como áreas de protección obligada para
+        contribuir a la conectividad entre arrecifes y favorecer el
+        reabastecimiento de larvas de coral.
+      </p>
+      <p>
+        Fortalecer el monitoreo profesional y de voluntarios para comprender el
+        estado de salud de los arrecifes, los procesos que lo determinan, y las
+        necesidades de manejo. Evaluar la eficacia de las medidas de manejo y
+        determinar qué arrecifes deben ser incluidos en áreas protegidas.
+      </p>
+    </div>
+
+    <div id="map2"></div>
+
+    <div id="mapa2">
+      <p>Mapa de Cuba, por ciento de blanquemiento por zona</p>
+    </div>
+
+    <div id="conclusion">
+      <p>
+        Los corales, a pesar de las afectaciones por blanqueamiento, exhiben una
+        resiliencia notable frente a las perturbaciones, destacada por diversas
+        características ecológicas. La capacidad de recuperación de los
+        ecosistemas de arrecifes de coral se ve influida por la variabilidad
+        genética, la diversidad funcional y la conectividad de hábitats. A lo
+        largo de los años, la comprensión de la dinámica de los ecosistemas ha
+        evolucionado, reconociendo equilibrios múltiples y no linealidades. Esto
+        ha llevado a dos definiciones de resiliencia: la tradicional, centrada
+        en la estabilidad cerca de un solo estado de equilibrio, y la más
+        reciente, que considera los ecosistemas en un entorno dinámico con
+        estados estables múltiples.
+      </p>
+      <p>
+        La resiliencia del ecosistema después de una perturbación se relaciona
+        con la distribución, abundancia e interacciones dinámicas de las
+        especies a diferentes escalas espaciales y temporales. La diversidad
+        funcional juega un papel crucial al proporcionar formas alternativas de
+        mantener funciones clave del ecosistema frente al cambio.
+      </p>
+    </div>
+
+    <div id="metodologia">
+      <h1>Metodología</h1>
+      <p>
+        Cheng, K., Li, X., Tong, M., Jong, MC, Cai, Z., Zheng, H., ... y Zhou,
+        J. (2023). Integrated metagenomic and metaproteomic analyses reveal
+        bacterial micro-ecological mechanisms in coral bleaching, 8 (6),
+        e00505-23.
+      </p>
+      <p>
+        Alcolado, P. M., & Castellanos, S. (2015). Reporte de blanqueamiento de
+        corales del año 2015 en Cuba.
+      </p>
+      <p>
+        Romero-Rodríguez, D., Bernal, G., & Zea, S. (2014). Variables
+        ambientales durante blanqueamiento coralino en el Caribe colombiano.
+        Revista de la Academia Colombiana de Ciencias Exactas, Físicas y
+        Naturales, 38(149), 347-355.
+      </p>
+      <p>
+        Cobián Rojas, D., Márquez Llauger, L., Chevalier Monteagudo, P. P.,
+        Perera Valderrama, S., González Méndez, J., Caballero Aragón, H., ... &
+        Navarro Martínez, Z. M. (2022). Investigación, monitoreo y manejo para
+        la conservación y uso sostenible de los arrecifes coralinos en el Parque
+        Nacional Guanahacabibes. Anales de la Academia de Ciencias de Cuba,
+        12(2).
+      </p>
+      <p>
+        Nyström, M., Folke, C., & Moberg, F. (2000). Coral reef
+        disturbance and resilience in a human-dominated
+        environment. Trends in ecology & evolution, 15(10), 413- 417.
+      </p>
+      <p>Enlaces sobre la procedencia de los datos obtenidos:</p>
+      <p>
+        <a
+          href="https://hub.arcgis.com/datasets/7ddfd8c4b7d340ba96f9f8864efc5289/explore?location=12.046676%2C-25.653531%2C2.75"
+          target="_blank"
+          >Dataset ArcGIS - Bleaching and Environmental Data for Global Coral
+          Reef Sites (1980-2020)</a
+        >
+      </p>
+      <p>
+        <a
+          href="https://datasetsearch.research.google.com/search?src=2&query=Bleaching%20and%20environmental%20data%20for%20global%20coral%20reef%20sites%20from%201980-2020"
+          target="_blank"
+          >Google Dataset Search - Bleaching and Environmental Data for Global
+          Coral Reef Sites (1980-2020)</a
+        >
+      </p>
+    </div>
+
+    <!-- Gráficas de temperaturas oceánicas -->
+    <script type="module">
+      let temperaturas_oc;
+
+      fetch("./oceanos.json")
+        .then((response) => response.json())
+        .then((dat) => {
+          temperaturas_oc = dat;
+          createCharts(temperaturas_oc);
+        })
+        .catch((error) => console.error("Error al cargar el JSON:", error));
+
+      function createCharts(result) {
+        const buttonsDiv = document.getElementById("buttons");
+        const container = document.getElementById("chartContainer");
+
+        Object.keys(result).forEach((className) => {
+          const button = createButton(className, container);
+          buttonsDiv.appendChild(button);
+
+          const chartContainer = createContainer(className, container);
+          container.appendChild(chartContainer);
+
+          createChart(className, result[className], chartContainer);
+        });
+      }
+
+      function createButton(className, container) {
+        const button = document.createElement("button");
+        button.textContent = `${className}`;
+        button.addEventListener("click", () => {
+          // Ocultar todos los contenedores
+          const allContainers = document.querySelectorAll(".class-container");
+          allContainers.forEach(
+            (container) => (container.style.display = "none")
+          );
+
+          // Mostrar el contenedor correspondiente
+          const containerToShow = document.getElementById(
+            `container-${className}`
+          );
+          containerToShow.style.display = "block";
+        });
+
+        return button;
+      }
+
+      function createContainer(className, parentContainer) {
+        const container = document.createElement("div");
+        container.className = "class-container";
+        container.id = `container-${className}`;
+        container.style.display = "none"; // Ocultar el contenedor inicialmente
+
+        return container;
+      }
+
+      function createChart(className, classData, container) {
+        const graphic = document.createElement("canvas");
+
+        container.appendChild(graphic);
+
+        const ctx = graphic.getContext("2d");
+        const gradient = ctx.createLinearGradient(0, 0, 0, graphic.height);
+        gradient.addColorStop(0, "rgba(255, 255, 0, 0.5)");
+        gradient.addColorStop(1, "rgba(255, 0, 0, 0.8)");
+
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: classData.map((item) => item.año),
+            datasets: [
+              {
+                label: "Promedio de Temperatura Oceánica por Años",
+                backgroundColor: gradient,
+                borderColor: "rgba(255, 0, 0, 1)",
+                borderWidth: 2,
+                data: classData.map((item) =>
+                  parseFloat(item.temperaturas.replace(",", "."))
+                ),
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: false,
+              },
+            },
+          },
+        });
+      }
+    </script>
+
+    <!-- Imágenes de transición de un coral sano a un coral muerto -->
+    <script type="module">
+      const imageContainer = document.getElementById("image-container");
+      const slider = document.getElementById("slider");
+      const numberOfImages = 36;
+      const imageFolderPath = "./images/";
+      const imagePrefix = "ezgif-frame-0";
+
+      // Función para cargar y mostrar una imagen en el contenedor
+      function showImage(imageNumber) {
+        const imageURL = `${imageFolderPath}${imagePrefix}${imageNumber}.jpg`;
+        const imageElement = document.createElement("img");
+        imageElement.src = imageURL;
+        imageElement.alt = `Imagen ${imageNumber}`;
+
+        // Limpia el contenedor antes de agregar una nueva imagen
+        imageContainer.innerHTML = "";
+
+        imageContainer.appendChild(imageElement);
+      }
+
+      function loadLastImageDimensions() {
+        const lastImage = new Image();
+        lastImage.src = `${imageFolderPath}${imagePrefix}${numberOfImages}.jpg`;
+
+        lastImage.onload = function () {
+          imageContainer.style.width = lastImage.width + "px";
+          imageContainer.style.height = lastImage.height + "px";
+        };
+      }
+
+      showImage(1);
+
+      slider.addEventListener("input", () => {
+        const percentage = slider.value;
+        const currentImage =
+          Math.floor((percentage / 100) * numberOfImages) + 1;
+        showImage(currentImage);
+      });
+    </script>
+
+    <!-- Mapa mundial con los por cientos de corales blanqueados por regiones ecológicas -->
+    <script type="module">
+      let percent_corals;
+
+      fetch("./coordinates.geojson")
+        .then((response) => response.json())
+        .then((dat) => {
+          percent_corals = dat;
+          createMap(percent_corals);
+        })
+        .catch((error) => console.error("Error al cargar el JSON:", error));
+
+      function createMap(geoJsonData) {
+        const map = L.map("map", {
+          maxZoom: 10,
+          minZoom: 2,
+        }).setView([0, 0], 2);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap contributors",
+        }).addTo(map);
+
+        L.geoJSON(geoJsonData, {
+          style: (feature) => {
+            const coralblchp = feature.properties.coralblchp;
+            return {
+              fillColor: getColor(coralblchp),
+              weight: 2,
+              opacity: 1,
+              color: "white",
+              dashArray: "3",
+              fillOpacity: 0.7,
+            };
+          },
+          onEachFeature: (feature, layer) => {
+            layer.bindPopup(feature.properties.popup_text);
+          },
+        }).addTo(map);
+      }
+
+      function getColor(coralblchp) {
+        return coralblchp === -9998.0
+          ? "gray"
+          : coralblchp < 0
+          ? "black"
+          : coralblchp < 5
+          ? "red"
+          : "green";
+      }
+    </script>
+
+    <!-- Gráficas de características de un coral sano y un coral blanqueado -->
+    <script type="module">
+      let corales_caract;
+
+      fetch("./caracteristicas.json")
+        .then((response) => response.json())
+        .then((dat) => {
+          corales_caract = dat;
+          createCharts(corales_caract);
+        })
+        .catch((error) => console.error("Error al cargar el JSON:", error));
+
+      function createCharts(result) {
+        const pieContainer = document.getElementById("chartContainer2");
+
+        Object.keys(result).forEach((className) => {
+          const chart = createChart(className, result[className][0]);
+          pieContainer.appendChild(chart);
+        });
+      }
+
+      function createChart(className, classData) {
+        const chartContainer = document.createElement("div");
+        chartContainer.className = "class-chart-container";
+
+        const graphic = document.createElement("canvas");
+
+        chartContainer.appendChild(graphic);
+
+        const ctx = graphic.getContext("2d");
+
+        const labels = Object.keys(classData);
+        const data = Object.values(classData).map((value) =>
+          parseFloat(value.replace(",", "."))
+        );
+
+        new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                backgroundColor: getRandomColors(labels.length),
+                data: data,
+              },
+            ],
+          },
+          options: {
+            plugins: {
+              datalabels: {
+                formatter: (value, context) => {
+                  const label = context.chart.data.labels[context.dataIndex];
+                  return `${label}: ${value}`;
+                },
+                color: "#fff",
+                display: "auto",
+                font: {
+                  size: 10,
+                },
+              },
+            },
+          },
+        });
+
+        chartContainer.id = `chart-${className}`;
+        chartContainer.className = "class-chart";
+
+        return chartContainer;
+      }
+
+      function getRandomColors(numColors) {
+        const colors = [];
+        for (let i = 0; i < numColors; i++) {
+          const hue = (i * 137.508) % 360;
+          colors.push(`hsl(${hue}, 70%, 50%)`);
+        }
+        return colors;
+      }
+    </script>
+
+    <!-- Mapa de Cuba con los por cientos de blanqueamiento en la zona -->
+    <script type="module">
+      let data2;
+
+      const cubaCenter = [21.5218, -77.7812];
+
+      const map2 = L.map("map2", {
+        center: cubaCenter,
+        zoom: 7,
+        maxBounds: L.latLngBounds([19.5, -85.0], [23.5, -74.0]),
+        maxZoom: 10,
+        minZoom: 5,
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map2);
+
+      const getColorForBleaching = (percent) => {
+        const r = Math.min(255, Math.max(0, 255));
+        const g = Math.min(255, Math.max(0, Math.round(255 - percent * 2.55)));
+        const b = Math.min(255, Math.max(0, 0));
+        return `rgb(${r}, ${g}, ${b})`;
+      };
+
+      fetch("./location.json")
+        .then((response) => response.json())
+        .then((dat) => {
+          data2 = dat;
+
+          if (data2 && data2.locations) {
+            data2.locations.forEach((element) => {
+              const { latitud, longitud, percent_bleaching, name } = element;
+              const color = getColorForBleaching(
+                parseFloat(percent_bleaching.replace(",", "."))
+              );
+
+              L.circle(
+                [
+                  parseFloat(latitud.replace(",", ".")),
+                  parseFloat(longitud.replace(",", ".")),
+                ],
+                {
+                  radius: 100,
+                  fillColor: color,
+                  color: color,
+                  weight: 7,
+                  opacity: 1,
+                  fillOpacity: 0.8,
+                }
+              )
+                .addTo(map2)
+                .bindPopup(
+                  "Zona: " +
+                    name +
+                    ", Por ciento de blanqueamiento: " +
+                    percent_bleaching +
+                    "%"
+                );
+            });
+          } else {
+            console.error(
+              "El objeto locations es undefined o no está definido."
+            );
+          }
+        })
+        .catch((error) => console.error("Error al cargar el JSON:", error));
+    </script>
+  </body>
 </html>
-
-
